@@ -19,7 +19,7 @@ function Sidebar() {
       </div>
 
       <div>
-        <NavLink to="/dashboard" exact>
+        <NavLink to="/users" exact>
           <div>
             <div className="sidebar_logo">
               <img src={require("../assets/images/user.svg")} alt="" />

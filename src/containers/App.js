@@ -11,6 +11,7 @@ import "../assets/css/reset.css";
 import "../assets/css/app.scss";
 
 import Dashboard from "../pages/Dashboard";
+import Users from "../pages/Users";
 import Signin from "../pages/Signin";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Signin} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/users" component={Users} />
             <Route render={() => <Redirect to="/" />} />
             {/* {!props.isAuth ? (
             <Route exact path="/fashion/:hashmail/:code" component={Signup} />

@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Notification from "../components/Notification";
 
-function Dashboard() {
+function Users() {
   return (
     <div>
       <Header />
@@ -17,28 +17,33 @@ function Dashboard() {
         <div>
           <div className="container__nav">
             <p>
-              <span className="container__nav--active">Dashboard</span>
+              <span className="container__nav--active">Dashboard</span> >{" "}
+              <span className="container__nav--inactive">Manage users</span>
             </p>
           </div>
-          <div className="dash_card">
+          <div className="container_user_add">
             <div>
-              <div className="dash_card_user">
-                <span>Total user</span>
-                <p>20,000,000:00</p>
+              <div className="container_user_add__img">
+                <img src={require("../assets/images/add-user.svg")} alt="" />
               </div>
+              <div className="container_user_add__text">Add User</div>
             </div>
-            <div>
-              <div className="dash_card_clock">
-                <span>Total user</span>
-                <p>20,000,000:00</p>
+          </div>
+          <div className="container_user_search">
+            <p>Find users</p>
+            <form>
+              <div>
+                <div className="container_user_search__input">
+                  <input
+                    type="text"
+                    placeholder="Enter user's name, phone number, or ID"
+                  />
+                </div>
+                <div className="container_user_search__button">
+                  <button>Find user</button>
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="dash_card_reject">
-                <span>Total user</span>
-                <p>20,000,000:00</p>
-              </div>
-            </div>
+            </form>
           </div>
           <div className="dash_table">
             <div>
@@ -101,4 +106,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Users;

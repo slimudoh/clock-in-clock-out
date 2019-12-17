@@ -20,28 +20,33 @@ function Header() {
 
           <div className="header_dropdown">
             <div>
-              <NavLink to="/dashboard">
-                <div>
-                  <div className="header_dropdown_img">
-                    <img
-                      src={require("../assets/images/settings.svg")}
-                      alt=""
-                    />
+              <div>
+                <NavLink to="/dashboard">
+                  <div>
+                    <div className="header_dropdown_img">
+                      <img
+                        src={require("../assets/images/settings.svg")}
+                        alt=""
+                      />
+                    </div>
+                    <div className="header_dropdown_link">Settings</div>
                   </div>
-                  <div className="header_dropdown_link">Settings</div>
-                </div>
-              </NavLink>
-            </div>
+                </NavLink>
+              </div>
 
-            <div>
-              <NavLink to="/">
-                <div>
-                  <div className="header_dropdown_img">
-                    <img src={require("../assets/images/logout.svg")} alt="" />
+              <div>
+                <NavLink to="/">
+                  <div>
+                    <div className="header_dropdown_img">
+                      <img
+                        src={require("../assets/images/logout.svg")}
+                        alt=""
+                      />
+                    </div>
+                    <div className="header_dropdown_link">Log out</div>
                   </div>
-                  <div className="header_dropdown_link">Log out</div>
-                </div>
-              </NavLink>
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>
