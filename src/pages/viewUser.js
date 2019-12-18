@@ -125,7 +125,6 @@ function Users() {
           </div>
         </div>
       </div>
-
       {profileModal ? (
         <div className="container_user_add_profile">
           <div>

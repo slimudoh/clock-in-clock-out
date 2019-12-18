@@ -411,6 +411,7 @@ $debugger: 1px solid red;
 
         >.container__nav {
             margin-bottom: 30px;
+            padding: 0 10px;
 
             >p {
                 color: #ccc;
@@ -653,10 +654,10 @@ $debugger: 1px solid red;
             padding: 10px;
 
             >div {
-                width: 200px;
+                width: 150px;
                 background-color: #fff;
                 border: 1px solid #585598;
-                padding: 20px;
+                padding: 10px;
                 border-radius: 3px;
                 display: flex;
                 flex-flow: row nowrap;
@@ -665,7 +666,7 @@ $debugger: 1px solid red;
                 cursor: pointer;
 
                 >.container_user_add__img {
-                    width: 30px;
+                    width: 20px;
 
                     >img {
                         width: 100%;
@@ -730,6 +731,390 @@ $debugger: 1px solid red;
                         }
 
                     }
+                }
+            }
+        }
+    }
+}
+
+.container_user_add_profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 2;
+    overflow: auto;
+
+    >div {
+        padding: 0 10px;
+        margin: 100px auto;
+        max-width: 500px;
+
+        >.user_modal_content {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 50px;
+
+            >.user_modal_content_header {
+                >.user_modal_content_header_text {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    >.user_modal_content_header_text__para {
+                        text-align: center;
+                        font-weight: 600;
+                        font-size: 16px;
+                        position: relative;
+
+                        >.user_modal_content_header_text__span {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            width: 30px;
+                            text-align: center;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: rgba(0, 0, 0, 0.4);
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                >.user_modal_content_header_nav {
+                    width: 150px;
+                    margin: 20px auto;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    >.user_modal_content_header_nav_circle_selected {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 60px;
+                        border: 3px solid #ccc;
+                        background-color: #585598;
+                    }
+
+                    >.user_modal_content_header_nav_circle {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 60px;
+                        border: 3px solid #ccc;
+                    }
+
+                    >.user_modal_content_header_nav_line {
+                        width: calc(100% - 30px);
+                        border: 1px solid #ccc;
+
+                    }
+                }
+            }
+
+            >.user_modal_content_form {
+
+                >.user_modal_content_form__input {
+                    max-width: 400px;
+                    margin: 0 auto 20px auto;
+
+                    >label {
+                        color: #000;
+                        font-size: 14px;
+                    }
+
+                    >div {
+                        position: relative;
+                        height: 40px;
+                        overflow: hidden;
+                        margin-top: 5px;
+                        border: 1px solid #000;
+                        border-radius: 5px;
+
+                        >input {
+                            height: 40px;
+                            padding: 0 10px;
+                            outline: 0;
+                            border: 0;
+                            font-size: 13px;
+                            color: #000;
+                        }
+
+                        >select {
+                            height: 40px;
+                            padding: 0 10px;
+                            outline: 0;
+                            border: 0;
+                            font-size: 13px;
+                            color: #000;
+                        }
+
+                        >div {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+                            align-items: center;
+
+                            >img {
+                                width: 20px;
+                            }
+                        }
+                    }
+                }
+
+                >.user_modal_content_form__checkbox {
+                    max-width: 400px;
+                    margin: 0 auto 20px auto;
+
+                    >label {
+                        color: #000;
+                        font-size: 14px;
+                    }
+
+                    >div {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+
+                        >div {
+                            width: 90px;
+                            margin-top: 5px;
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+                            align-items: center;
+
+                            >p {
+                                width: 50%;
+                            }
+
+                            >input {
+                                width: 30px;
+                            }
+
+                        }
+
+
+                    }
+                }
+
+                >.user_modal_content_form__button {
+                    max-width: 400px;
+                    margin: 0 auto 20px auto;
+                    height: 40px;
+                    overflow: hidden;
+                    margin-top: 5px;
+                    border: 1px solid #585598;
+                    background-color: #585598;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.container_user_add_account {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: 2;
+    overflow: auto;
+
+    >div {
+        padding: 0 10px;
+        margin: 100px auto;
+        max-width: 500px;
+
+        >.user_modal_content {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 50px;
+
+            >.user_modal_content_header {
+                >.user_modal_content_header_text {
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    >.user_modal_content_header_text__para {
+                        text-align: center;
+                        font-weight: 600;
+                        font-size: 16px;
+                        position: relative;
+
+                        >.user_modal_content_header_text__span {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            width: 30px;
+                            text-align: center;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: rgba(0, 0, 0, 0.4);
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                >.user_modal_content_header_nav {
+                    width: 150px;
+                    margin: 20px auto;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    >.user_modal_content_header_nav_circle_selected {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 60px;
+                        border: 3px solid #ccc;
+                        background-color: #585598;
+                    }
+
+                    >.user_modal_content_header_nav_circle {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 60px;
+                        border: 3px solid #ccc;
+                    }
+
+                    >.user_modal_content_header_nav_line {
+                        width: calc(100% - 30px);
+                        border: 1px solid #ccc;
+
+                    }
+                }
+            }
+
+            >.user_modal_content_form {
+
+                >.user_modal_content_form__input {
+                    max-width: 400px;
+                    margin: 0 auto 20px auto;
+
+                    >label {
+                        color: #000;
+                        font-size: 14px;
+                    }
+
+                    >div {
+                        position: relative;
+                        height: 40px;
+                        overflow: hidden;
+                        margin-top: 5px;
+                        border: 1px solid #000;
+                        border-radius: 5px;
+
+                        >input {
+                            height: 40px;
+                            padding: 0 10px;
+                            outline: 0;
+                            border: 0;
+                            font-size: 13px;
+                            color: #000;
+                        }
+
+                        >select {
+                            height: 40px;
+                            padding: 0 10px;
+                            outline: 0;
+                            border: 0;
+                            font-size: 13px;
+                            color: #000;
+                        }
+
+                        >div {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+                            align-items: center;
+
+                            >img {
+                                width: 20px;
+                            }
+                        }
+                    }
+                }
+
+                >.user_modal_content_form__checkbox {
+                    max-width: 400px;
+                    margin: 0 auto 20px auto;
+
+                    >label {
+                        color: #000;
+                        font-size: 14px;
+                    }
+
+                    >div {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+
+                        >div {
+                            width: 90px;
+                            margin-top: 5px;
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: center;
+                            align-items: center;
+
+                            >p {
+                                width: 50%;
+                            }
+
+                            >input {
+                                width: 30px;
+                            }
+
+                        }
+
+
+                    }
+                }
+
+                >.user_modal_content_form__button {
+                    max-width: 400px;
+                    margin: 0 auto 20px auto;
+                    height: 40px;
+                    overflow: hidden;
+                    margin-top: 5px;
+                    border: 1px solid #585598;
+                    background-color: #585598;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 16px;
+                    cursor: pointer;
                 }
             }
         }
