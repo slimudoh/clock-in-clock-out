@@ -66,7 +66,7 @@ function Sidebar() {
       </div>
 
       <div>
-        <NavLink to="/dashboard" exact>
+        <NavLink to="/messages" exact>
           <div>
             <div className="sidebar_logo">
               <img src={require("../assets/images/pushmessage.svg")} alt="" />
