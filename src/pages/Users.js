@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import "../assets/css/reset.css";
 import "../assets/css/app.scss";
@@ -8,6 +9,40 @@ import Sidebar from "../components/Sidebar";
 import Notification from "../components/Notification";
 
 function Users() {
+  let history = useHistory();
+
+  const [profileModal, setProfileModal] = useState(false);
+  const [accountModal, setAccountModal] = useState(false);
+
+  const addUserModal = () => {
+    setProfileModal(true);
+    setAccountModal(false);
+  };
+
+  const openAccountModal = () => {
+    setProfileModal(false);
+    setAccountModal(true);
+  };
+
+  const closeModal = () => {
+    setProfileModal(false);
+    setAccountModal(false);
+  };
+
+  const addUser = () => {
+    setProfileModal(false);
+    setAccountModal(false);
+  };
+
+  const viewUser = () => {
+    history.push("/view-user");
+  };
+
+  const searchdata = e => {
+    e.preventDefault();
+    console.log("search");
+  };
+
   return (
     <div>
       <Header />
@@ -22,7 +57,7 @@ function Users() {
             </p>
           </div>
           <div className="container_user_add">
-            <div>
+            <div className="container_user_add__btn" onClick={addUserModal}>
               <div className="container_user_add__img">
                 <img src={require("../assets/images/add-user.svg")} alt="" />
               </div>
@@ -31,7 +66,7 @@ function Users() {
           </div>
           <div className="container_user_search">
             <p>Find users</p>
-            <form>
+            <form onSubmit={searchdata}>
               <div>
                 <div className="container_user_search__input">
                   <input
@@ -56,12 +91,12 @@ function Users() {
                   <div>Name</div>
                   <div>Profession</div>
                   <div>Location</div>
-                  <div>date</div>
+                  <div>Date</div>
                   <div>Status</div>
                 </div>
                 <div className="dash_table_body__tbody">
                   <div>
-                    <div>
+                    <div onClick={viewUser}>
                       <div className="dash_table_body__tbody_img">
                         <img
                           src={require("../assets/images/boy.png")}
@@ -78,8 +113,9 @@ function Users() {
                       <div className="dash_table_body__tbody_green"></div>
                     </div>
                   </div>
+
                   <div>
-                    <div>
+                    <div onClick={viewUser}>
                       <div className="dash_table_body__tbody_img">
                         <img
                           src={require("../assets/images/boy.png")}
@@ -102,6 +138,175 @@ function Users() {
           </div>
         </div>
       </div>
+
+      {profileModal ? (
+        <div className="container_user_add_profile">
+          <div>
+            <div className="user_modal_content">
+              <div className="user_modal_content_header">
+                <div className="user_modal_content_header_text">
+                  <div className="user_modal_content_header_text__para">
+                    Add user
+                    <div
+                      className="user_modal_content_header_text__span"
+                      onClick={closeModal}
+                    >
+                      x
+                    </div>
+                  </div>
+                </div>
+                <div className="user_modal_content_header_nav">
+                  <div className="user_modal_content_header_nav_circle_selected"></div>
+                  <div className="user_modal_content_header_nav_line"></div>
+                  <div className="user_modal_content_header_nav_circle"></div>
+                </div>
+              </div>
+              <div className="user_modal_content_form">
+                <div className="user_modal_content_form__input">
+                  <label>First name</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Last name</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Email</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Job description</label>
+                  <div>
+                    <select>
+                      <option></option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Identifications</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Date of Birth</label>
+                  <div>
+                    <input type="text" />
+                    <div>
+                      <img
+                        src={require("../assets/images/calendar.svg")}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__checkbox">
+                  <label>Gender</label>
+                  <div>
+                    <div>
+                      <p>Female</p> <input type="checkbox" />
+                    </div>
+                    <div>
+                      <p>Male</p> <input type="checkbox" />
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className="user_modal_content_form__button"
+                  onClick={openAccountModal}
+                >
+                  Next
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {accountModal ? (
+        <div className="container_user_add_account">
+          <div>
+            <div className="user_modal_content">
+              <div className="user_modal_content_header">
+                <div className="user_modal_content_header_text">
+                  <div className="user_modal_content_header_text__para">
+                    Add user
+                    <div
+                      className="user_modal_content_header_text__span"
+                      onClick={closeModal}
+                    >
+                      x
+                    </div>
+                  </div>
+                </div>
+                <div className="user_modal_content_header_nav">
+                  <div className="user_modal_content_header_nav_circle"></div>
+                  <div className="user_modal_content_header_nav_line"></div>
+                  <div className="user_modal_content_header_nav_circle_selected"></div>
+                </div>
+              </div>
+              <div className="user_modal_content_form">
+                <div className="user_modal_content_form__input">
+                  <label>Account Number</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Bank name</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>BVN</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>Residential Address</label>
+                  <div>
+                    <input type="text" />
+                  </div>
+                </div>
+
+                <div className="user_modal_content_form__input">
+                  <label>LGA</label>
+                  <div>
+                    <select>
+                      <option></option>
+                    </select>
+                  </div>
+                </div>
+
+                <div
+                  className="user_modal_content_form__button"
+                  onClick={addUser}
+                >
+                  Next
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

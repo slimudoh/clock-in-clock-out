@@ -30,7 +30,7 @@ function Sidebar() {
       </div>
 
       <div>
-        <NavLink to="/dashboard" exact>
+        <NavLink to="/supervisors" exact>
           <div>
             <div className="sidebar_logo">
               <img src={require("../assets/images/supervisor.svg")} alt="" />
@@ -41,7 +41,7 @@ function Sidebar() {
       </div>
 
       <div>
-        <NavLink to="/dashboard" exact>
+        <NavLink to="/request" exact>
           <div>
             <div className="sidebar_logo">
               <img src={require("../assets/images/request.svg")} alt="" />

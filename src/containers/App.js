@@ -12,6 +12,10 @@ import "../assets/css/app.scss";
 
 import Dashboard from "../pages/Dashboard";
 import Users from "../pages/Users";
+import Supervisors from "../pages/Supervisors";
+import Request from "../pages/Request";
+import ViewUser from "../pages/ViewUser";
+import ViewRequest from "../pages/ViewRequest";
 import Signin from "../pages/Signin";
 
 function App() {
@@ -30,6 +34,10 @@ function App() {
             <Route exact path="/" component={Signin} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/users" component={Users} />
+            <Route exact path="/supervisors" component={Supervisors} />
+            <Route exact path="/request" component={Request} />
+            <Route exact path="/view-user" component={ViewUser} />
+            <Route exact path="/view-request" component={ViewRequest} />
             <Route render={() => <Redirect to="/" />} />
             {/* {!props.isAuth ? (
             <Route exact path="/fashion/:hashmail/:code" component={Signup} />
