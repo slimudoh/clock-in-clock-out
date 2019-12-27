@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import * as actionCreators from "../store/actions";
 
 import "../assets/css/reset.css";
 import "../assets/css/app.scss";
@@ -8,6 +10,19 @@ import Sidebar from "../components/Sidebar";
 import Notification from "../components/Notification";
 
 function Dashboard() {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(state => state.auths.isLoggedIn);
+
+  useEffect(() => {
+    const checkIsAuthenticated = () => {
+      if (!isAuth) {
+        dispatch(actionCreators.logout());
+        return;
+      }
+    };
+    checkIsAuthenticated();
+  });
+
   return (
     <div>
       <Header />
