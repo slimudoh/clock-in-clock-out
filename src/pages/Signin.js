@@ -1,11 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as actionCreators from "../store/actions";
 
 import "../assets/css/reset.css";
 import "../assets/css/app.scss";
 
 function Signin() {
   let history = useHistory();
+  const dispatch = useDispatch();
+  const isAuth = useSelector(state => state.auths.isLoggedIn);
+
+  useEffect(() => {
+    const checkIsAuthenticated = () => {
+      if (isAuth) {
+        history.push("/dashboard");
+        return;
+      }
+      dispatch(actionCreators.logout());
+    };
+
+    checkIsAuthenticated();
+  });
 
   const [signupData, setSignupData] = useState({
     username: "longbridge",
@@ -42,8 +58,7 @@ function Signin() {
       password: signupdata.password
     };
 
-    console.log(registerData);
-    // history.push("/dashboard");
+    dispatch(actionCreators.login(registerData));
   };
 
   const handleSignupData = e =>

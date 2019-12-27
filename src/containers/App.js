@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import {
   BrowserRouter as Router,
@@ -21,8 +22,7 @@ import ViewRequest from "../pages/ViewRequest";
 import Signin from "../pages/Signin";
 
 function App(props) {
-  const [isAuth, setIsAuth] = useState(false);
-
+  const isAuth = useSelector(state => state.auths.isLoggedIn);
   return (
     <div>
       <div className="app__mobile">
@@ -36,27 +36,17 @@ function App(props) {
         <Router>
           <Switch>
             <Route exact path="/" component={Signin} />
+            {isAuth ? <Route path="/dashboard" component={Dashboard} /> : null}
+            {isAuth ? <Route path="/users" component={Users} /> : null}
             {isAuth ? (
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Route path="/supervisors" component={Supervisors} />
             ) : null}
-            {isAuth ? <Route exact path="/users" component={Users} /> : null}
+            {isAuth ? <Route path="/request" component={Request} /> : null}
+            {isAuth ? <Route path="/messages" component={Messages} /> : null}
+            {isAuth ? <Route path="/location" component={Location} /> : null}
+            {isAuth ? <Route path="/view-user" component={ViewUser} /> : null}
             {isAuth ? (
-              <Route exact path="/supervisors" component={Supervisors} />
-            ) : null}
-            {isAuth ? (
-              <Route exact path="/request" component={Request} />
-            ) : null}
-            {isAuth ? (
-              <Route exact path="/messages" component={Messages} />
-            ) : null}
-            {isAuth ? (
-              <Route exact path="/location" component={Location} />
-            ) : null}
-            {isAuth ? (
-              <Route exact path="/view-user" component={ViewUser} />
-            ) : null}
-            {isAuth ? (
-              <Route exact path="/view-request" component={ViewRequest} />
+              <Route path="/view-request" component={ViewRequest} />
             ) : null}
             {isAuth ? <Route component={Dashboard} /> : null}
             {!isAuth ? <Route render={() => <Redirect to="/" />} /> : null}

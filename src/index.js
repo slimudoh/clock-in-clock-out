@@ -19,6 +19,7 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const token = sessionStorage.getItem("token");
+
 if (token) {
   axios.defaults.headers.common["Authorization"] = `${token}`;
   axios.defaults.headers.common["Content-Type"] = "application/json";

@@ -5,25 +5,28 @@ export const login = payload => {
   return dispatch => {
     const error = null;
     dispatch(loginError(error));
-
     new Promise((resolve, reject) => {
+      console.log(payload);
       axios
         .post(types.LOGIN__PATH, payload)
         .then(resp => {
           const data = resp.data.data;
-          if (data) {
-            sessionStorage.setItem("token", data.token);
-            axios.defaults.headers.common["Authorization"] = `${data.token}`;
-            dispatch(setToken(data.token));
-          } else {
-            const error = "Wrong Authentication. Please try again.";
-            sessionStorage.removeItem("token");
-          }
-
+          console.log(data);
+          // if (data) {
+          //   sessionStorage.setItem("token", data.token);
+          //   axios.defaults.headers.common["Authorization"] = `${data.token}`;
+          //   dispatch(setToken(data.token));
+          // } else {
+          //   const error = "Wrong Authentication. Please try again.";
+          //   dispatch(loginError(error));
+          //   sessionStorage.removeItem("token");
+          // }
           resolve(resp);
         })
         .catch(err => {
-          const error = "An error occured. Please try again later";
+          console.log(JSON.stringify(err));
+          // const error = "error";
+          // dispatch(loginError(error));
           sessionStorage.removeItem("token");
           reject(err);
         });
@@ -45,6 +48,7 @@ export const logout = () => {
 };
 
 export const loginError = payload => {
+  console.log(payload);
   return {
     type: types.LOGIN_ERROR,
     payload: payload
