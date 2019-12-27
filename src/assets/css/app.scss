@@ -1128,6 +1128,12 @@ $debugger: 1px solid red;
             align-items: center;
             border-bottom: 1px solid #ddd;
             padding: 10px;
+            cursor: pointer;
+            background-color: transparent;
+
+            &:hover {
+              background-color: #ddd;
+            }
 
             >.message_body_list_avatar {
               width: 30px;
