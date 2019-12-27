@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -20,7 +20,9 @@ import ViewUser from "../pages/ViewUser";
 import ViewRequest from "../pages/ViewRequest";
 import Signin from "../pages/Signin";
 
-function App() {
+function App(props) {
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <div>
       <div className="app__mobile">
@@ -34,35 +36,30 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Signin} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/users" component={Users} />
-            <Route exact path="/supervisors" component={Supervisors} />
-            <Route exact path="/request" component={Request} />
-            <Route exact path="/messages" component={Messages} />
-            <Route exact path="/location" component={Location} />
-            <Route exact path="/view-user" component={ViewUser} />
-            <Route exact path="/view-request" component={ViewRequest} />
-            <Route render={() => <Redirect to="/" />} />
-            {/* {!props.isAuth ? (
-            <Route exact path="/fashion/:hashmail/:code" component={Signup} />
-          ) : null}
-          {!props.isAuth ? <Route path="/signin" component={Signin} /> : null}
-          {!props.isAuth ? (
-            <Route path="/change-password" component={Password} />
-          ) : null}
-          {!props.isAuth ? (
-            <Route path="/new-password" component={Reset} />
-          ) : null}
-          {!props.isAuth ? (
-            <Route render={() => <Redirect to="/signin" />} />
-          ) : null} */}
-
-            {/* {props.isAuth ? (
-            <Route path="/dashboard" component={Dashboard} />
-          ) : null}
-          {props.isAuth ? <Route path="/payment" component={Payment} /> : null}
-          {props.isAuth ? <Route path="/account" component={Account} /> : null}
-          {props.isAuth ? <Route component={Notfound} /> : null} */}
+            {isAuth ? (
+              <Route exact path="/dashboard" component={Dashboard} />
+            ) : null}
+            {isAuth ? <Route exact path="/users" component={Users} /> : null}
+            {isAuth ? (
+              <Route exact path="/supervisors" component={Supervisors} />
+            ) : null}
+            {isAuth ? (
+              <Route exact path="/request" component={Request} />
+            ) : null}
+            {isAuth ? (
+              <Route exact path="/messages" component={Messages} />
+            ) : null}
+            {isAuth ? (
+              <Route exact path="/location" component={Location} />
+            ) : null}
+            {isAuth ? (
+              <Route exact path="/view-user" component={ViewUser} />
+            ) : null}
+            {isAuth ? (
+              <Route exact path="/view-request" component={ViewRequest} />
+            ) : null}
+            {isAuth ? <Route component={Dashboard} /> : null}
+            {!isAuth ? <Route render={() => <Redirect to="/" />} /> : null}
           </Switch>
         </Router>
       </div>
