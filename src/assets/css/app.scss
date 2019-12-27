@@ -1981,6 +1981,212 @@ $debugger: 1px solid red;
         }
       }
     }
+
+    >.location_download {
+      overflow: hidden;
+      padding: 0 10px;
+      margin-bottom: 40px;
+
+      >div {
+        width: 350px;
+        float: right;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        >.location_download_xls {
+          width: 170px;
+          height: 40px;
+          overflow: hidden;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #3d8344;
+          border: 2px solid #3d8344;
+          border-radius: 3px;
+          cursor: pointer;
+
+          >.location_download_xls_icon {
+            width: 30px;
+            height: 30px;
+            padding: 3px;
+
+            >img {
+              width: 100%;
+            }
+          }
+
+          >.location_download_xls_arrow {
+            width: 20px;
+            height: 20px;
+            padding: 3px;
+
+            >img {
+              width: 100%;
+            }
+          }
+
+          >p {
+            width: calc(100% - 50px);
+            margin: 0;
+            color: #fff;
+            font-size: 14px;
+            text-align: left;
+          }
+        }
+
+        >.location_download_pdf {
+          width: 170px;
+          height: 40px;
+          overflow: hidden;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #e85a5a;
+          border: 2px solid #e85a5a;
+          border-radius: 3px;
+          cursor: pointer;
+
+          >.location_download_pdf_icon {
+            width: 30px;
+            height: 30px;
+            padding: 3px;
+
+            >img {
+              width: 100%;
+            }
+          }
+
+          >.location_download_pdf_arrow {
+            width: 20px;
+            height: 20px;
+            padding: 3px;
+
+            >img {
+              width: 100%;
+            }
+          }
+
+          >p {
+            width: calc(100% - 50px);
+            margin: 0;
+            color: #fff;
+            font-size: 14px;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    >.location_btns {
+      padding: 0 10px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      >.location_btns_location {
+        width: 400px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        >.location_btns_location_text {
+          width: 80px;
+          font-weight: 600;
+          font-size: 16px;
+          color: #000;
+        }
+
+        >.location_btns_location_dropdown {
+          width: calc(100% - 230px);
+          border: 1px solid #ccc;
+          overflow: hidden;
+          border-radius: 60px;
+
+          >select {
+            height: 40px;
+            border: 0;
+            outline: 0;
+            background-color: transparent;
+            font-size: 13px;
+            color: #000;
+          }
+        }
+
+        >.location_btns_location_filter {
+          width: 100px;
+          font-size: 13px;
+          color: #000;
+          height: 40px;
+          border-radius: 60px;
+          border: 1px solid #ccc;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      >.location_btns_btn {
+        width: 200px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        border-radius: 60px;
+        background-color: #fff;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        overflow: hidden;
+
+        >div {
+          width: 33.3333333%;
+          height: 40px;
+          text-align: center;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #585598;
+            color: #fff;
+          }
+        }
+      }
+
+      >.location_btns_search {
+        width: 200px;
+        position: relative;
+        border-bottom: 2px solid #7d7d7d;
+
+        >input {
+          height: 40px;
+          border: 0;
+          outline: 0;
+          background: transparent;
+          padding-left: 23px;
+          padding-right: 5px;
+          font-size: 14px;
+          color: #000;
+        }
+
+        >div {
+          position: absolute;
+          top: 10px;
+          left: 0;
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
   }
 }
 

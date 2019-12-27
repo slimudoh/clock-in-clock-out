@@ -55,7 +55,7 @@ function Sidebar() {
       </div>
 
       <div>
-        <NavLink to="/dashboard" exact>
+        <NavLink to="/location" exact>
           <div>
             <div className="sidebar_logo">
               <img src={require("../assets/images/location.svg")} alt="" />

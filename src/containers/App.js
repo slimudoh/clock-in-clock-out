@@ -15,6 +15,7 @@ import Users from "../pages/Users";
 import Supervisors from "../pages/Supervisors";
 import Request from "../pages/Request";
 import Messages from "../pages/Messages";
+import Location from "../pages/Location";
 import ViewUser from "../pages/ViewUser";
 import ViewRequest from "../pages/ViewRequest";
 import Signin from "../pages/Signin";
@@ -38,6 +39,7 @@ function App() {
             <Route exact path="/supervisors" component={Supervisors} />
             <Route exact path="/request" component={Request} />
             <Route exact path="/messages" component={Messages} />
+            <Route exact path="/location" component={Location} />
             <Route exact path="/view-user" component={ViewUser} />
             <Route exact path="/view-request" component={ViewRequest} />
             <Route render={() => <Redirect to="/" />} />
