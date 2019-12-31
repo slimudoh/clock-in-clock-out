@@ -14,6 +14,7 @@ export const login = payload => {
             sessionStorage.setItem("token", data.jwt);
             axios.defaults.headers.common["Authorization"] = `${data.token}`;
             dispatch(setToken(data.token));
+            dispatch(getUsers());
           } else {
             const error = "Wrong Authentication. Please try again.";
             dispatch(loginError(error));
@@ -53,8 +54,6 @@ export const loginError = payload => {
 
 export const getUsers = () => {
   return dispatch => {
-    const error = null;
-    dispatch(getUsersError(error));
     new Promise((resolve, reject) => {
       axios
         .get(types.USERS__PATH)
@@ -64,18 +63,8 @@ export const getUsers = () => {
           resolve(resp);
         })
         .catch(err => {
-          console.log(JSON.stringify(err));
-          const error = "Server error. Please try again later";
-          dispatch(getUsersError(error));
           reject(err);
         });
     });
-  };
-};
-
-export const getUsersError = payload => {
-  return {
-    type: types.USER_ERROR,
-    payload: payload
   };
 };

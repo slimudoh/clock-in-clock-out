@@ -9,7 +9,7 @@ const usersReducer = (state = initialState, action) => {
     case types.GET_USERS:
       return {
         ...state,
-        token: action.payload
+        users: action.payload
       };
     default:
       return state;
