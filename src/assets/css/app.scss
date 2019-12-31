@@ -137,7 +137,19 @@ $debugger: 1px solid red;
                 font-size: 16px;
                 font-weight: 600;
                 cursor: pointer;
+
               }
+            }
+
+            .auth_container_form__error {
+              max-width: 400px;
+              margin: 0 auto 20px auto;
+              border: 1px solid #e85a5a;
+              padding: 10px;
+              font-size: 12px;
+              color: #fff;
+              background-color: #e85a5a;
+              border-radius: 3px;
             }
           }
         }
@@ -250,6 +262,23 @@ $debugger: 1px solid red;
                   color: #000;
                   padding-left: 10px;
                 }
+              }
+            }
+
+            >div {
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: space-between;
+              align-items: center;
+
+              .header_dropdown_img {
+                width: 20px;
+              }
+
+              >.header_dropdown_link {
+                font-size: 14px;
+                color: #000;
+                padding-left: 10px;
               }
             }
           }
@@ -2889,5 +2918,27 @@ $debugger: 1px solid red;
         }
       }
     }
+  }
+}
+
+.whiteloader {
+  width: 30px;
+  height: 30px;
+  border-left: 5px solid #fff;
+  border-top: 5px solid #fff;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-radius: 60px;
+  animation: spin 0.3s infinite linear;
+  margin: auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

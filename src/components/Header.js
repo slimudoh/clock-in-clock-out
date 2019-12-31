@@ -1,10 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import * as actionCreators from "../store/actions";
 
 import "../assets/css/reset.css";
 import "../assets/css/app.scss";
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(actionCreators.logout());
+  };
+
   return (
     <div className="header">
       <div className="header_logo">LOGO</div>
@@ -35,17 +43,12 @@ function Header() {
               </div>
 
               <div>
-                <NavLink to="/">
-                  <div>
-                    <div className="header_dropdown_img">
-                      <img
-                        src={require("../assets/images/logout.svg")}
-                        alt=""
-                      />
-                    </div>
-                    <div className="header_dropdown_link">Log out</div>
+                <div onClick={logout}>
+                  <div className="header_dropdown_img">
+                    <img src={require("../assets/images/logout.svg")} alt="" />
                   </div>
-                </NavLink>
+                  <div className="header_dropdown_link">Log out</div>
+                </div>
               </div>
             </div>
           </div>

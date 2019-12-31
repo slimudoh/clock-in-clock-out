@@ -44,13 +44,13 @@ function Dashboard() {
             </div>
             <div>
               <div className="dash_card_clock">
-                <span>Total user</span>
+                <span>Clocked in</span>
                 <p>20,000,000:00</p>
               </div>
             </div>
             <div>
               <div className="dash_card_reject">
-                <span>Total user</span>
+                <span>Rejected</span>
                 <p>20,000,000:00</p>
               </div>
             </div>

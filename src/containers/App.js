@@ -21,7 +21,7 @@ import ViewUser from "../pages/ViewUser";
 import ViewRequest from "../pages/ViewRequest";
 import Signin from "../pages/Signin";
 
-function App(props) {
+function App() {
   const isAuth = useSelector(state => state.auths.isLoggedIn);
   return (
     <div>
