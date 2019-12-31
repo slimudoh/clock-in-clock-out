@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as actionCreators from "../store/actions";
 
 import "../assets/css/reset.css";
 import "../assets/css/app.scss";
@@ -11,8 +13,23 @@ import Notification from "../components/Notification";
 function Users() {
   let history = useHistory();
 
+  const dispatch = useDispatch();
+  const isAuth = useSelector(state => state.auths.isLoggedIn);
+
   const [profileModal, setProfileModal] = useState(false);
   const [accountModal, setAccountModal] = useState(false);
+
+  useEffect(() => {
+    const checkIsAuthenticated = () => {
+      if (!isAuth) {
+        dispatch(actionCreators.logout());
+        return;
+      }
+
+      dispatch(actionCreators.getUsers());
+    };
+    checkIsAuthenticated();
+  });
 
   const addUserModal = () => {
     setProfileModal(true);

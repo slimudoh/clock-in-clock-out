@@ -50,3 +50,32 @@ export const loginError = payload => {
     payload: payload
   };
 };
+
+export const getUsers = () => {
+  return dispatch => {
+    const error = null;
+    dispatch(getUsersError(error));
+    new Promise((resolve, reject) => {
+      axios
+        .get(types.USERS__PATH)
+        .then(resp => {
+          // const data = resp.data;
+          console.log(resp);
+          resolve(resp);
+        })
+        .catch(err => {
+          console.log(JSON.stringify(err));
+          const error = "Server error. Please try again later";
+          dispatch(getUsersError(error));
+          reject(err);
+        });
+    });
+  };
+};
+
+export const getUsersError = payload => {
+  return {
+    type: types.USER_ERROR,
+    payload: payload
+  };
+};
