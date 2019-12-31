@@ -3,13 +3,17 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as actionCreators from "../store/actions";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
+import WhiteLoader from "../components/WhiteLoader";
 
 function Signin() {
   let history = useHistory();
   const dispatch = useDispatch();
   const isAuth = useSelector(state => state.auths.isLoggedIn);
+  const isError = useSelector(state => state.err.loginError);
+
+  const [loginError, setLoginError] = useState(false);
+  const [loginMsg, setLoginMsg] = useState(null);
+  const [btnLoader, setBtnLoader] = useState(false);
 
   useEffect(() => {
     const checkIsAuthenticated = () => {
@@ -17,6 +21,13 @@ function Signin() {
         history.push("/dashboard");
         return;
       }
+
+      if (isError) {
+        setLoginError(true);
+        setLoginMsg(isError);
+        setBtnLoader(false);
+      }
+
       dispatch(actionCreators.logout());
     };
 
@@ -31,25 +42,32 @@ function Signin() {
   const signin = e => {
     e.preventDefault();
 
+    setLoginMsg(null);
+    setLoginError(false);
+
     let signupdata = signupData;
 
     if (signupdata.username.trim() === "") {
-      console.log("Please enter your username.");
+      setLoginMsg("Please enter your username.");
+      setLoginError(true);
       return;
     }
 
     if (signupdata.password.trim() === "") {
-      console.log("Please enter your password.");
+      setLoginMsg("Please enter your password.");
+      setLoginError(true);
       return;
     }
 
     if (signupdata.password.trim().length < 5) {
-      console.log("Password must not be less than 5 characters.");
+      setLoginMsg("Password must not be less than 5 characters.");
+      setLoginError(true);
       return;
     }
 
     if (/\s/.test(signupdata.password.trim())) {
-      console.log("Password must not contain space.");
+      setLoginMsg("Password must not contain space.");
+      setLoginError(true);
       return;
     }
 
@@ -57,6 +75,8 @@ function Signin() {
       username: signupdata.username,
       password: signupdata.password
     };
+
+    setBtnLoader(true);
 
     dispatch(actionCreators.login(registerData));
   };
@@ -103,8 +123,17 @@ function Signin() {
                   />
                 </div>
                 <div className="auth_container_form__button">
-                  <button onClick={signin}>Sign in</button>
+                  {btnLoader ? (
+                    <button disabled>
+                      <WhiteLoader />
+                    </button>
+                  ) : (
+                    <button onClick={signin}>Sign in</button>
+                  )}
                 </div>
+                {loginError ? (
+                  <div className="auth_container_form__error">{loginMsg}</div>
+                ) : null}
               </form>
             </div>
           </div>

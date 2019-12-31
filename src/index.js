@@ -9,10 +9,12 @@ import * as actionCreators from "./store/actions";
 import * as serviceWorker from "./serviceWorker";
 
 import authReducer from "./store/reduces/auth";
+import usersReducer from "./store/reduces/users";
 import errorsReducer from "./store/reduces/error";
 
 const rootReducer = combineReducers({
   auths: authReducer,
+  users: usersReducer,
   err: errorsReducer
 });
 
