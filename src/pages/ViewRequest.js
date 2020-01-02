@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
-
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 

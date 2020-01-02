@@ -10,8 +10,8 @@ import PageLoader from "../components/PageLoader";
 
 function Users() {
   let history = useHistory();
-
   const dispatch = useDispatch();
+
   const isAuth = useSelector(state => state.auths.isLoggedIn);
   const allUsers = useSelector(state => state.users.users);
 
@@ -28,6 +28,8 @@ function Users() {
 
       if (allUsers) {
         setPageloader(false);
+      } else {
+        dispatch(actionCreators.getUsers());
       }
     };
     checkIsAuthenticated();

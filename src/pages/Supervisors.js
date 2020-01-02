@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
+import * as types from "../store/constant";
+import axios from "axios";
 
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
@@ -12,6 +12,17 @@ function Supervisors() {
   let history = useHistory();
 
   const [supervisorModal, setSupervisorModal] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(types.DEMO__PATH)
+      .then(resp => {
+        console.log(resp);
+      })
+      .catch(err => {
+        console.log(JSON.stringify(err));
+      });
+  });
 
   const addSupervisor = () => {
     setSupervisorModal(true);

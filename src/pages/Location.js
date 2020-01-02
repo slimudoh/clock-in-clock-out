@@ -1,9 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
-
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 

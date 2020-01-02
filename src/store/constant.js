@@ -8,3 +8,4 @@ export const USER_ERROR = "USER_ERROR";
 
 export const LOGIN__PATH = `${process.env.REACT_APP_PATH}authenticate`;
 export const USERS__PATH = `${process.env.REACT_APP_PATH}allusers`;
+export const DEMO__PATH = `${process.env.REACT_APP_PATH}getclockedinuserstoday`;
