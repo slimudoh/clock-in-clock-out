@@ -12,9 +12,10 @@ export const login = payload => {
           const data = resp.data;
           if (data.jwt) {
             sessionStorage.setItem("token", data.jwt);
-            axios.defaults.headers.common["Authorization"] = `${data.token}`;
-            dispatch(setToken(data.token));
-            dispatch(getUsers());
+            axios.defaults.headers.common[
+              "Authorization"
+            ] = `Bearer ${data.jwt}`;
+            dispatch(setToken(data.jwt));
           } else {
             const error = "Wrong Authentication. Please try again.";
             dispatch(loginError(error));
@@ -23,7 +24,7 @@ export const login = payload => {
           resolve(resp);
         })
         .catch(err => {
-          const error = "Server error. Please try again later";
+          const error = "Cannot connet to the server. Please try again later";
           dispatch(loginError(error));
           sessionStorage.removeItem("token");
           reject(err);
@@ -63,6 +64,7 @@ export const getUsers = () => {
           resolve(resp);
         })
         .catch(err => {
+          console.log(JSON.stringify(err));
           reject(err);
         });
     });

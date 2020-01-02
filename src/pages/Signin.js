@@ -35,8 +35,8 @@ function Signin() {
   });
 
   const [signupData, setSignupData] = useState({
-    username: "longbridge",
-    password: "12345"
+    email: "adedayosauce60@yahoo.com",
+    password: "1234"
   });
 
   const signin = e => {
@@ -47,8 +47,8 @@ function Signin() {
 
     let signupdata = signupData;
 
-    if (signupdata.username.trim() === "") {
-      setLoginMsg("Please enter your username.");
+    if (signupdata.email.trim() === "") {
+      setLoginMsg("Please enter your email.");
       setLoginError(true);
       return;
     }
@@ -59,11 +59,11 @@ function Signin() {
       return;
     }
 
-    if (signupdata.password.trim().length < 5) {
-      setLoginMsg("Password must not be less than 5 characters.");
-      setLoginError(true);
-      return;
-    }
+    // if (signupdata.password.trim().length < 5) {
+    //   setLoginMsg("Password must not be less than 5 characters.");
+    //   setLoginError(true);
+    //   return;
+    // }
 
     if (/\s/.test(signupdata.password.trim())) {
       setLoginMsg("Password must not contain space.");
@@ -72,7 +72,7 @@ function Signin() {
     }
 
     const registerData = {
-      username: signupdata.username,
+      email: signupdata.email,
       password: signupdata.password
     };
 
@@ -105,11 +105,11 @@ function Signin() {
             <div className="auth_container_form">
               <form>
                 <div className="auth_container_form__input">
-                  <label>Username</label>
+                  <label>Email</label>
                   <input
                     type="text"
-                    name="username"
-                    value={signupData.username}
+                    name="email"
+                    value={signupData.email}
                     onChange={handleSignupData}
                   />
                 </div>

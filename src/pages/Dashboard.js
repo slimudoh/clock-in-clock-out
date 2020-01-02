@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actionCreators from "../store/actions";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
-
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Notification from "../components/Notification";
@@ -25,6 +22,8 @@ function Dashboard() {
 
       if (allUsers) {
         setPageloader(false);
+      } else {
+        dispatch(actionCreators.getUsers());
       }
     };
     checkIsAuthenticated();

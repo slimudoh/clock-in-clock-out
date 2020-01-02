@@ -1,8 +1,5 @@
 import React from "react";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
-
 function Notification() {
   return (
     <div className="notify">

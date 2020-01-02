@@ -3,9 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as actionCreators from "../store/actions";
 
-import "../assets/css/reset.css";
-import "../assets/css/app.scss";
-
 function Header() {
   const dispatch = useDispatch();
 
