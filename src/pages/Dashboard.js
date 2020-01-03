@@ -83,25 +83,28 @@ function Dashboard() {
                     <div>Status</div>
                   </div>
                   <div className="dash_table_body__tbody">
-                    <div>
-                      <div>
-                        <div className="dash_table_body__tbody_img">
-                          <img
-                            src={require("../assets/images/boy.png")}
-                            alt="user"
-                          />
-                        </div>
+                    {allUsers.map((user, index) => (
+                      <div key={index}>
+                        <div>
+                          <div className="dash_table_body__tbody_img">
+                            <img
+                              src={require("../assets/images/boy.png")}
+                              alt="user"
+                            />
+                          </div>
 
-                        <p>Adewale Michaelson</p>
+                          <p>Adewale Michaelson</p>
+                        </div>
+                        <div>Doctor</div>
+                        <div>Shomolu</div>
+                        <div>21 May 2019</div>
+                        <div>
+                          <div className="dash_table_body__tbody_green"></div>
+                        </div>
                       </div>
-                      <div>Doctor</div>
-                      <div>Shomolu</div>
-                      <div>21 May 2019</div>
-                      <div>
-                        <div className="dash_table_body__tbody_green"></div>
-                      </div>
-                    </div>
-                    <div>
+                    ))}
+
+                    {/* <div>
                       <div>
                         <div className="dash_table_body__tbody_img">
                           <img
@@ -118,7 +121,7 @@ function Dashboard() {
                       <div>
                         <div className="dash_table_body__tbody_red"></div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
