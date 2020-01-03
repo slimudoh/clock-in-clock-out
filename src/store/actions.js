@@ -24,6 +24,7 @@ export const login = payload => {
           resolve(resp);
         })
         .catch(err => {
+          console.log(JSON.stringify(err));
           const error = "Cannot connet to the server. Please try again later";
           dispatch(loginError(error));
           sessionStorage.removeItem("token");
@@ -59,14 +60,20 @@ export const getUsers = () => {
       axios
         .get(types.USERS__PATH)
         .then(resp => {
-          // const data = resp.data;
-          console.log(resp);
+          const data = resp.data.response;
+          dispatch(useDetails(data));
           resolve(resp);
         })
         .catch(err => {
-          console.log(JSON.stringify(err));
           reject(err);
         });
     });
+  };
+};
+
+export const useDetails = payload => {
+  return {
+    type: types.USER_DETAILS,
+    payload: payload
   };
 };
