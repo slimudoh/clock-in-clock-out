@@ -119,47 +119,38 @@ function Users() {
                     <div>Name</div>
                     <div>Profession</div>
                     <div>Location</div>
-                    <div>Date</div>
+                    <div>Date of Birth</div>
                     <div>Status</div>
                   </div>
                   <div className="dash_table_body__tbody">
-                    <div>
-                      <div onClick={viewUser}>
-                        <div className="dash_table_body__tbody_img">
-                          <img
-                            src={require("../assets/images/boy.png")}
-                            alt="user"
-                          />
+                    {allUsers.map((user, index) => (
+                      <div key={index}>
+                        <div onClick={viewUser}>
+                          <div className="dash_table_body__tbody_img">
+                            <img
+                              src={require("../assets/images/boy.png")}
+                              alt="user"
+                            />
+                          </div>
+
+                          <p>
+                            {" "}
+                            {user.firstname} {user.lastname}
+                          </p>
                         </div>
-
-                        <p>Adewale Michaelson</p>
-                      </div>
-                      <div>Doctor</div>
-                      <div>Shomolu</div>
-                      <div>21 May 2019</div>
-                      <div>
-                        <div className="dash_table_body__tbody_green"></div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div onClick={viewUser}>
-                        <div className="dash_table_body__tbody_img">
-                          <img
-                            src={require("../assets/images/boy.png")}
-                            alt="user"
-                          />
+                        <div>{user.usertype}</div>
+                        <div>{user.location}</div>
+                        <div>{user.dateofbirth}</div>
+                        <div>
+                          {user.enabled === 0 ? (
+                            <div className="dash_table_body__tbody_red"></div>
+                          ) : null}
+                          {user.enabled === 1 ? (
+                            <div className="dash_table_body__tbody_green"></div>
+                          ) : null}
                         </div>
-
-                        <p>Adewale Michaelson</p>
                       </div>
-                      <div>Doctor</div>
-                      <div>Shomolu</div>
-                      <div>21 May 2019</div>
-                      <div>
-                        <div className="dash_table_body__tbody_red"></div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>

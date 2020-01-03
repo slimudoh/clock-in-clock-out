@@ -569,6 +569,7 @@ $debugger: 1px solid red;
               align-items: center;
               padding-bottom: 10px;
               border-bottom: 1px solid #ddd;
+              text-align: left;
 
               >div:nth-child(1) {
                 width: 30%;
@@ -616,6 +617,7 @@ $debugger: 1px solid red;
                   overflow: hidden;
                   text-overflow: ellipsis;
                   cursor: pointer;
+                  text-align: left;
                 }
 
                 >.dash_table_body__tbody_green {

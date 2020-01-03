@@ -72,14 +72,14 @@ function Dashboard() {
                   <div className="dash_table_header_text">
                     Recent enrolments
                   </div>
-                  <div className="dash_table_header_link">View All</div>
+                  {/* <div className="dash_table_header_link">View All</div> */}
                 </div>
                 <div className="dash_table_body">
                   <div className="dash_table_body__thead">
                     <div>Name</div>
                     <div>Profession</div>
                     <div>Location</div>
-                    <div>date</div>
+                    <div>Date of Birth</div>
                     <div>Status</div>
                   </div>
                   <div className="dash_table_body__tbody">
@@ -93,13 +93,20 @@ function Dashboard() {
                             />
                           </div>
 
-                          <p>Adewale Michaelson</p>
+                          <p>
+                            {user.firstname} {user.lastname}
+                          </p>
                         </div>
-                        <div>Doctor</div>
-                        <div>Shomolu</div>
-                        <div>21 May 2019</div>
+                        <div>{user.usertype}</div>
+                        <div>{user.location}</div>
+                        <div>{user.dateofbirth}</div>
                         <div>
-                          <div className="dash_table_body__tbody_green"></div>
+                          {user.enabled === 0 ? (
+                            <div className="dash_table_body__tbody_red"></div>
+                          ) : null}
+                          {user.enabled === 1 ? (
+                            <div className="dash_table_body__tbody_green"></div>
+                          ) : null}
                         </div>
                       </div>
                     ))}
